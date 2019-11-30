@@ -1,4 +1,4 @@
-package com.ustbyjy.hadoop.mapreduce.flow_sum;
+package com.ustbyjy.hadoop.mr.flow_sum;
 
 
 import org.apache.hadoop.io.LongWritable;

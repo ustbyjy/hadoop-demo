@@ -1,4 +1,4 @@
-package com.ustbyjy.hadoop.mapreduce.word_count;
+package com.ustbyjy.hadoop.mr.word_count;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
@@ -48,6 +48,10 @@ public class WordCountApp {
     }
 
     public static void main(String[] args) throws Exception {
+        if (args == null || args.length == 0) {
+            args = new String[]{"data/word.txt", "/tmp/word_count"};
+        }
+
         Configuration configuration = new Configuration();
 
         Path outputPath = new Path(args[1]);
@@ -73,7 +77,7 @@ public class WordCountApp {
 
         FileOutputFormat.setOutputPath(job, new Path(args[1]));
 
-        System.out.println(job.waitForCompletion(true) ? 0 : 1);
+        job.waitForCompletion(true);
     }
 
 }

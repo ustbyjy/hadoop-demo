@@ -14,12 +14,22 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        <hadoop.version>2.6.0-cdh5.7.0</hadoop.version>
+        <hadoop.version>2.6.0-cdh5.16.2</hadoop.version>
         <lombok.version>1.18.8</lombok.version>
         <junit.version>4.12</junit.version>
     </properties>
 
     <repositories>
+        <repository>
+            <id>aliyun</id>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
         <repository>
             <id>cloudera</id>
             <url>https://repository.cloudera.com/artifactory/cloudera-repos/</url>
@@ -56,7 +66,6 @@
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.0</version>
                 <configuration>
                     <source>${maven.compiler.source}</source>
                     <target>${maven.compiler.target}</target>
@@ -70,7 +79,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>com.ustbyjy.hadoop.mapreduce.word_count.WordCountApp</mainClass>
+                            <mainClass>com.ustbyjy.hadoop.mr.word_count.WordCountApp</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
