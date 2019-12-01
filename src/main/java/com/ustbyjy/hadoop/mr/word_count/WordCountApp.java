@@ -71,6 +71,9 @@ public class WordCountApp {
         job.setMapOutputKeyClass(Text.class);
         job.setMapOutputValueClass(LongWritable.class);
 
+        // 对每一个MapTask的输出进行局部汇总，以减小网络传输量即采用Combiner功能
+        job.setCombinerClass(MyReducer.class);
+
         job.setReducerClass(MyReducer.class);
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(LongWritable.class);
